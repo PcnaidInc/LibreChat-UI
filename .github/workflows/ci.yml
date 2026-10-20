@@ -28,7 +28,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --frozen-lockfile
 
       # The repository defines no lint, typecheck, test or build scripts.
       # `app:dist` packages a full desktop build (network + platform
