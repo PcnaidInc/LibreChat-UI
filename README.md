@@ -19,6 +19,7 @@
   - [Start the Application](#start-the-application)
   - [Build Directory](#build-directory)
   - [Create Distribution Package](#create-distribution-package)
+- [CI](#ci)
 - [Telemetry](#telemetry)
 - [License](#license)
 - [Support](#support)
@@ -102,6 +103,10 @@ yarn start
 ```bash
 yarn app:dist
 ```
+
+## CI
+
+The [`CI`](.github/workflows/ci.yml) workflow runs on every pull request and on pushes to `master`. It installs dependencies with `yarn install --immutable` and runs the repository's existing checks. This project defines no lint, typecheck, test, or build scripts on its default branch, so CI performs a minimal `node --check index.js` syntax check over the main process source. The workflow uses least-privilege `contents: read` permissions and cancels superseded runs via a concurrency group. It does not deploy or require secrets.
 
 ## Telemetry
 
